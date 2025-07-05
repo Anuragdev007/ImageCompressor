@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import { Combine, Trash2, Download } from 'lucide-react';
+import { Combine, Trash2, Download, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { UploadZone } from '@/components/upload-zone';
 import { FileCard } from '@/components/file-card';
 import { CompressionSettingsPanel } from '@/components/compression-settings';
 import { ComparisonModal } from '@/components/comparison-modal';
+import { BatchQueuePanel } from '@/components/batch-queue-panel';
 import { useImageCompression } from '@/hooks/use-image-compression';
 import { UploadedFile } from '@shared/schema';
 import { formatFileSize, downloadMultipleFiles } from '@/lib/image-utils';
+import { Link } from 'wouter';
 
 export default function Home() {
   const {
@@ -20,6 +22,7 @@ export default function Home() {
     removeFile,
     clearAllFiles,
     updateSettings,
+    batchProcessor,
   } = useImageCompression();
 
   const [previewFile, setPreviewFile] = useState<UploadedFile | null>(null);
@@ -54,6 +57,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
+              <Link href="/">
+                <Button variant="ghost" size="sm" className="p-2 mr-2">
+                  <ArrowLeft size={20} />
+                </Button>
+              </Link>
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <Combine className="text-white" size={20} />
               </div>
@@ -85,6 +93,21 @@ export default function Home() {
             {/* File Processing Area */}
             {hasFiles && (
               <div className="mt-8">
+                {/* Batch Queue Panel */}
+                <BatchQueuePanel
+                  stats={batchProcessor.getStats()}
+                  isRunning={batchProcessor.isRunning}
+                  concurrency={batchProcessor.concurrency}
+                  onStart={() => batchProcessor.processBatch(
+                    pendingFiles.map(f => f.id),
+                    compressFile
+                  )}
+                  onPause={batchProcessor.stopBatch}
+                  onRetryFailed={() => batchProcessor.retryFailed(compressFile)}
+                  onClear={batchProcessor.reset}
+                  onConcurrencyChange={batchProcessor.setConcurrency}
+                />
+
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl font-semibold text-slate-900">Processing Files</h2>
                   <div className="flex items-center space-x-4">

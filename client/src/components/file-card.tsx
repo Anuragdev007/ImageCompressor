@@ -1,8 +1,10 @@
-import { Eye, Download, X } from 'lucide-react';
+import { Eye, Download, X, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { Badge } from '@/components/ui/badge';
 import { UploadedFile } from '@shared/schema';
 import { formatFileSize, calculateSavings, downloadBlob } from '@/lib/image-utils';
+import { getRecommendationText, getRecommendationColor } from '@/lib/quality-assessment';
 
 interface FileCardProps {
   file: UploadedFile;
@@ -85,6 +87,29 @@ export function FileCard({ file, onRemove, onPreview }: FileCardProps) {
                 <p className="font-medium text-slate-900">{file.quality}%</p>
               </div>
             </div>
+
+            {/* Quality Assessment */}
+            {file.qualityMetrics && (
+              <div className="mt-3 p-2 rounded-lg border">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-xs font-medium text-slate-700">Quality Assessment</span>
+                  <Badge className={`text-xs ${getRecommendationColor(file.qualityMetrics.recommendation)}`}>
+                    {file.qualityMetrics.recommendation}
+                  </Badge>
+                </div>
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <div>
+                    <span className="text-slate-500">Quality Score:</span>
+                    <span className="ml-1 font-medium">{file.qualityMetrics.qualityScore}%</span>
+                  </div>
+                  <div>
+                    <span className="text-slate-500">File Reduction:</span>
+                    <span className="ml-1 font-medium text-green-600">{file.qualityMetrics.fileReduction}%</span>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-600 mt-1">{getRecommendationText(file.qualityMetrics.recommendation)}</p>
+              </div>
+            )}
 
             {file.error && (
               <div className="mt-2 text-xs text-red-600 bg-red-50 p-2 rounded">

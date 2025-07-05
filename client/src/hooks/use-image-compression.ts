@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react';
 import { UploadedFile, CompressionSettings, SessionStats } from '@shared/schema';
 import { compressImage, createImagePreview, formatFileSize, calculateSavings, isJpegFile } from '@/lib/image-utils';
+import { calculateQualityMetrics } from '@/lib/quality-assessment';
+import { useBatchProcessor } from '@/hooks/use-batch-processor';
 import { useToast } from '@/hooks/use-toast';
 
 export function useImageCompression() {
@@ -16,6 +18,7 @@ export function useImageCompression() {
     averageReduction: 0,
   });
   const { toast } = useToast();
+  const batchProcessor = useBatchProcessor();
 
   const addFiles = useCallback(async (newFiles: File[]) => {
     const validFiles = newFiles.filter(file => {
@@ -76,12 +79,19 @@ export function useImageCompression() {
 
       setFiles(prev => prev.map(f => {
         if (f.id === fileId) {
+          const qualityMetrics = calculateQualityMetrics(
+            f.originalSize,
+            compressedBlob.size,
+            settings.quality
+          );
+          
           const updated = {
             ...f,
             compressedBlob,
             compressedSize: compressedBlob.size,
             status: 'complete' as const,
             progress: 100,
+            qualityMetrics,
           };
           return updated;
         }
@@ -126,10 +136,13 @@ export function useImageCompression() {
 
   const compressAllFiles = useCallback(async () => {
     const pendingFiles = files.filter(f => f.status === 'pending');
-    for (const file of pendingFiles) {
-      await compressFile(file.id);
-    }
-  }, [files, compressFile]);
+    if (pendingFiles.length === 0) return;
+    
+    await batchProcessor.processBatch(
+      pendingFiles.map(f => f.id),
+      compressFile
+    );
+  }, [files, compressFile, batchProcessor]);
 
   const removeFile = useCallback((fileId: string) => {
     setFiles(prev => {
@@ -171,5 +184,6 @@ export function useImageCompression() {
     removeFile,
     clearAllFiles,
     updateSettings,
+    batchProcessor,
   };
 }

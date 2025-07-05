@@ -1,6 +1,7 @@
 import { X, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { UploadedFile } from '@shared/schema';
 import { formatFileSize, calculateSavings, downloadBlob } from '@/lib/image-utils';
 
@@ -27,6 +28,9 @@ export function ComparisonModal({ file, isOpen, onClose }: ComparisonModalProps)
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-6xl w-full max-h-[90vh] overflow-hidden p-0">
+        <VisuallyHidden>
+          <DialogTitle>Image Comparison Modal</DialogTitle>
+        </VisuallyHidden>
         <div className="flex items-center justify-between p-6 border-b border-slate-200">
           <h3 className="text-xl font-semibold text-slate-900">Before / After Comparison</h3>
           <Button

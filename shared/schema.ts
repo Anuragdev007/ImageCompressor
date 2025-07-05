@@ -6,6 +6,14 @@ export const compressionSettingsSchema = z.object({
   outputFormat: z.enum(["jpeg", "webp"]).default("jpeg"),
 });
 
+export const qualityMetricsSchema = z.object({
+  psnr: z.number().optional(),
+  ssim: z.number().optional(),
+  fileReduction: z.number(),
+  qualityScore: z.number(),
+  recommendation: z.enum(["excellent", "good", "acceptable", "poor"]),
+});
+
 export const uploadedFileSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -18,6 +26,7 @@ export const uploadedFileSchema = z.object({
   compressedBlob: z.any().optional(), // Compressed blob
   previewUrl: z.string(),
   error: z.string().optional(),
+  qualityMetrics: qualityMetricsSchema.optional(),
 });
 
 export const sessionStatsSchema = z.object({
@@ -28,5 +37,6 @@ export const sessionStatsSchema = z.object({
 });
 
 export type CompressionSettings = z.infer<typeof compressionSettingsSchema>;
+export type QualityMetrics = z.infer<typeof qualityMetricsSchema>;
 export type UploadedFile = z.infer<typeof uploadedFileSchema>;
 export type SessionStats = z.infer<typeof sessionStatsSchema>;

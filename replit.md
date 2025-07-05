@@ -99,9 +99,43 @@ This is a full-stack web application for compressing JPEG images. Built with Rea
 - **Database**: Serverless PostgreSQL via Neon
 - **Session Storage**: PostgreSQL-backed sessions for scalability
 
+## Recent Changes
+- July 05, 2025 (Latest). Enhanced batch processing with queue management system
+- July 05, 2025. Added quality assessment with visual feedback and recommendations  
+- July 05, 2025. Created landing page with clean, intuitive interface and clear instructions
+- July 05, 2025. Integrated Google AdSense for monetization with placeholder ads in development
+- July 05, 2025. Fixed font color issues and improved accessibility with dialog titles
+- July 05, 2025. Added before/after preview functionality with compression statistics
+
+## Key Features Added
+### Batch Processing & Queue Management
+- Intelligent queue system for large batches of images
+- Configurable concurrency (1-6 simultaneous processes)
+- Progress tracking with retry functionality for failed compressions
+- Real-time status updates and batch statistics
+
+### Quality Assessment System
+- Visual quality scoring with recommendations (excellent/good/acceptable/poor)
+- File size reduction percentage calculations
+- Quality metrics integrated into file cards
+- Smart recommendations based on compression efficiency
+
+### Landing Page
+- Professional marketing page with clear value proposition
+- Feature highlights and 3-step process explanation
+- SEO optimized with meta tags and Open Graph support
+- Responsive design with gradient backgrounds
+
+### AdSense Integration
+- Google AdSense script integration in HTML head
+- Configurable ad components (header, sidebar, rectangle formats)
+- Development placeholder ads with production-ready implementation
+- Environment-based ad rendering
+
 ## Changelog
-- July 05, 2025. Initial setup
+- July 05, 2025. Initial setup with compression functionality
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Focus areas: Batch processing, quality assessment, landing page, AdSense integration.
