@@ -97,3 +97,47 @@ export function AdSenseRectangle() {
     />
   );
 }
+
+export function AdSenseSquare() {
+  return (
+    <AdSenseBanner
+      adSlot="1111111111"
+      adFormat="rectangle"
+      adSize={{ width: 250, height: 250 }}
+      className="my-4"
+    />
+  );
+}
+
+export function AdSenseSkyscraper() {
+  return (
+    <AdSenseBanner
+      adSlot="2222222222"
+      adFormat="vertical"
+      adSize={{ width: 160, height: 600 }}
+      className="my-4"
+    />
+  );
+}
+
+export function AdSenseLeaderboard() {
+  return (
+    <AdSenseBanner
+      adSlot="3333333333"
+      adFormat="horizontal"
+      adSize={{ width: 728, height: 90 }}
+      className="my-4 mx-auto"
+    />
+  );
+}
+
+export function AdSenseMobile() {
+  return (
+    <AdSenseBanner
+      adSlot="4444444444"
+      adFormat="rectangle"
+      adSize={{ width: 320, height: 50 }}
+      className="my-4 mx-auto block md:hidden"
+    />
+  );
+}

@@ -10,6 +10,7 @@ import { useImageCompression } from '@/hooks/use-image-compression';
 import { UploadedFile } from '@shared/schema';
 import { formatFileSize, downloadMultipleFiles } from '@/lib/image-utils';
 import { Link } from 'wouter';
+import { AdSenseLeaderboard, AdSenseSquare, AdSenseSidebar, AdSenseMobile } from '@/components/adsense-banner';
 
 export default function Home() {
   const {
@@ -85,6 +86,14 @@ export default function Home() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-8">
+        {/* Mobile Ad */}
+        <AdSenseMobile />
+        
+        {/* Leaderboard Ad */}
+        <div className="hidden md:block">
+          <AdSenseLeaderboard />
+        </div>
+        
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Upload Zone and File Processing Area */}
           <div className="lg:col-span-3">
@@ -140,6 +149,13 @@ export default function Home() {
                     onPreview={handlePreview}
                   />
                 ))}
+                
+                {/* Square Ad between file cards when many files */}
+                {files.length > 5 && (
+                  <div className="my-8">
+                    <AdSenseSquare />
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -154,6 +170,9 @@ export default function Home() {
               onResetSettings={() => {}}
               hasFiles={pendingFiles.length > 0}
             />
+            
+            {/* Sidebar Ad */}
+            <AdSenseSidebar />
           </div>
         </div>
       </main>
