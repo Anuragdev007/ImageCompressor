@@ -48,7 +48,7 @@ export default function Contact() {
                   <CardTitle className="text-lg">Email Support</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-600 mb-2">support@jpegcompressor.com</p>
+                  <p className="text-slate-600 mb-2">bhardwajanurag546@gmail.com</p>
                   <p className="text-sm text-slate-500">We typically respond within 24 hours</p>
                 </CardContent>
               </Card>
@@ -59,7 +59,7 @@ export default function Contact() {
                   <CardTitle className="text-lg">Phone Support</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-600 mb-2">+1 (555) 123-4567</p>
+                  <p className="text-slate-600 mb-2">+91-8700533401</p>
                   <p className="text-sm text-slate-500">Mon-Fri, 9AM-5PM EST</p>
                 </CardContent>
               </Card>

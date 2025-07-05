@@ -118,7 +118,7 @@ export function CompressionSettingsPanel({
           disabled={!hasFiles}
         >
           <Combine className="mr-2" size={16} />
-          Combine All
+          Compress All
         </Button>
         <Button 
           variant="outline"

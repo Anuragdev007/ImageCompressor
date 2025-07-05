@@ -100,7 +100,8 @@ This is a full-stack web application for compressing JPEG images. Built with Rea
 - **Session Storage**: PostgreSQL-backed sessions for scalability
 
 ## Recent Changes (Latest Session)
-- July 05, 2025 (Latest). Created comprehensive legal and support pages for AdSense compliance
+- July 05, 2025 (Latest). Updated AdSense script with user's actual client ID (ca-pub-1611896159614248) for account verification
+- July 05, 2025. Created comprehensive legal and support pages for AdSense compliance
 - July 05, 2025. Added Contact Support, Privacy Policy, About Us, Terms of Service, and Help pages
 - July 05, 2025. Implemented multiple AdSense ad placements throughout the application
 - July 05, 2025. Created SEO-optimized sitemap.xml and robots.txt for search engine indexing

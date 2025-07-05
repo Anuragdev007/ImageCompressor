@@ -56,7 +56,7 @@ export function AdSenseBanner({
       <ins
         className="adsbygoogle"
         style={style}
-        data-ad-client={import.meta.env.VITE_ADSENSE_CLIENT_ID || "ca-pub-0000000000000000"}
+        data-ad-client="ca-pub-1611896159614248"
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive="true"

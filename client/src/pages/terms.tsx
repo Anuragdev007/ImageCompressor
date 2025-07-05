@@ -392,11 +392,9 @@ export default function Terms() {
                   </p>
                   
                   <div className="space-y-2 text-slate-600">
-                    <p>Email: legal@jpegcompressor.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
-                    <p>
-                      Address: 123 Legal Street, Terms City, TC 12345, United States
-                    </p>
+                    <p>Email: bhardwajanurag546@gmail.com</p>
+                    <p>Phone: +91-8700533401</p>
+                   
                   </div>
                   
                   <div className="mt-6">
