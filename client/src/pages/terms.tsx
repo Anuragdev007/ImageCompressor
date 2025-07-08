@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Link } from 'wouter';
-import { AdSenseRectangle, AdSenseSidebar } from '@/components/adsense-banner';
 
 export default function Terms() {
   return (
@@ -80,7 +79,7 @@ export default function Terms() {
               </Card>
             </div>
 
-            <AdSenseRectangle />
+           
 
             {/* Detailed Terms */}
             <div className="space-y-8">
@@ -411,7 +410,7 @@ export default function Terms() {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <AdSenseSidebar />
+          
             
             <Card className="mt-6">
               <CardHeader>

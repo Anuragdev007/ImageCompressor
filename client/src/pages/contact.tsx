@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Link } from 'wouter';
-import { AdSenseSidebar } from '@/components/adsense-banner';
+
 
 export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
@@ -174,7 +174,7 @@ export default function Contact() {
 
           {/* Sidebar with Ads */}
           <div className="lg:col-span-1">
-            <AdSenseSidebar />
+           
             
             <Card className="mt-6">
               <CardHeader>

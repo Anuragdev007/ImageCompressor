@@ -2,7 +2,6 @@ import { ArrowLeft, Target, Users, Zap, Shield, Award, Globe } from 'lucide-reac
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'wouter';
-import { AdSenseRectangle, AdSenseSidebar } from '@/components/adsense-banner';
 
 export default function About() {
   return (
@@ -75,7 +74,7 @@ export default function About() {
               </Card>
             </div>
 
-            <AdSenseRectangle />
+           
 
             {/* Our Story */}
             <Card className="mb-8">
@@ -312,7 +311,7 @@ export default function About() {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <AdSenseSidebar />
+            
             
             <Card className="mt-6">
               <CardHeader>

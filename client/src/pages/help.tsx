@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'wouter';
-import { AdSenseRectangle, AdSenseSidebar } from '@/components/adsense-banner';
+
 import { useState } from 'react';
 
 export default function Help() {
@@ -163,7 +163,6 @@ export default function Help() {
               </Card>
             </div>
 
-            <AdSenseRectangle />
 
             {/* FAQ Section */}
             <div className="mb-12">
@@ -284,7 +283,7 @@ export default function Help() {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <AdSenseSidebar />
+           
             
             <Card className="mt-6">
               <CardHeader>

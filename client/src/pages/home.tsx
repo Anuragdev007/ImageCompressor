@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { Combine, Trash2, Download, ArrowLeft } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { UploadZone } from '@/components/upload-zone';
-import { FileCard } from '@/components/file-card';
-import { CompressionSettingsPanel } from '@/components/compression-settings';
-import { ComparisonModal } from '@/components/comparison-modal';
-import { BatchQueuePanel } from '@/components/batch-queue-panel';
-import { useImageCompression } from '@/hooks/use-image-compression';
-import { UploadedFile } from '@shared/schema';
-import { formatFileSize, downloadMultipleFiles } from '@/lib/image-utils';
-import { Link } from 'wouter';
-import { AdSenseLeaderboard, AdSenseSquare, AdSenseSidebar, AdSenseMobile } from '@/components/adsense-banner';
+import { useState } from "react";
+import { Combine, Trash2, Download, ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { UploadZone } from "@/components/upload-zone";
+import { FileCard } from "@/components/file-card";
+import { CompressionSettingsPanel } from "@/components/compression-settings";
+import { ComparisonModal } from "@/components/comparison-modal";
+import { BatchQueuePanel } from "@/components/batch-queue-panel";
+import { useImageCompression } from "@/hooks/use-image-compression";
+import { UploadedFile } from "@shared/schema";
+import { formatFileSize, downloadMultipleFiles } from "@/lib/image-utils";
+import { Link } from "wouter";
 
 export default function Home() {
   const {
@@ -36,19 +35,19 @@ export default function Home() {
 
   const handleDownloadAll = () => {
     const completedFiles = files
-      .filter(f => f.compressedBlob)
-      .map(f => ({
+      .filter((f) => f.compressedBlob)
+      .map((f) => ({
         blob: f.compressedBlob!,
-        filename: `${f.name.replace(/\.[^/.]+$/, '')}_compressed.${f.name.split('.').pop()}`,
+        filename: `${f.name.replace(/\.[^/.]+$/, "")}_compressed.${f.name.split(".").pop()}`,
       }));
-    
+
     if (completedFiles.length > 0) {
       downloadMultipleFiles(completedFiles);
     }
   };
 
-  const pendingFiles = files.filter(f => f.status === 'pending');
-  const completedFiles = files.filter(f => f.status === 'complete');
+  const pendingFiles = files.filter((f) => f.status === "pending");
+  const completedFiles = files.filter((f) => f.status === "complete");
   const hasFiles = files.length > 0;
 
   return (
@@ -67,8 +66,12 @@ export default function Home() {
                 <Combine className="text-white" size={20} />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-slate-900">JPEG Compressor</h1>
-                <p className="text-sm text-slate-500">Smart image compression with quality control</p>
+                <h1 className="text-2xl font-bold text-slate-900">
+                  JPEG Compressor
+                </h1>
+                <p className="text-sm text-slate-500">
+                  Smart image compression with quality control
+                </p>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-4">
@@ -86,14 +89,6 @@ export default function Home() {
       </header>
 
       <main className="max-w-6xl mx-auto px-4 py-8">
-        {/* Mobile Ad */}
-        <AdSenseMobile />
-        
-        {/* Leaderboard Ad */}
-        <div className="hidden md:block">
-          <AdSenseLeaderboard />
-        </div>
-        
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Upload Zone and File Processing Area */}
           <div className="lg:col-span-3">
@@ -107,10 +102,12 @@ export default function Home() {
                   stats={batchProcessor.getStats()}
                   isRunning={batchProcessor.isRunning}
                   concurrency={batchProcessor.concurrency}
-                  onStart={() => batchProcessor.processBatch(
-                    pendingFiles.map(f => f.id),
-                    compressFile
-                  )}
+                  onStart={() =>
+                    batchProcessor.processBatch(
+                      pendingFiles.map((f) => f.id),
+                      compressFile,
+                    )
+                  }
                   onPause={batchProcessor.stopBatch}
                   onRetryFailed={() => batchProcessor.retryFailed(compressFile)}
                   onClear={batchProcessor.reset}
@@ -118,7 +115,9 @@ export default function Home() {
                 />
 
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-semibold text-slate-900">Processing Files</h2>
+                  <h2 className="text-xl font-semibold text-slate-900">
+                    Processing Files
+                  </h2>
                   <div className="flex items-center space-x-4">
                     <Button
                       variant="ghost"
@@ -141,7 +140,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {files.map(file => (
+                {files.map((file) => (
                   <FileCard
                     key={file.id}
                     file={file}
@@ -149,13 +148,6 @@ export default function Home() {
                     onPreview={handlePreview}
                   />
                 ))}
-                
-                {/* Square Ad between file cards when many files */}
-                {files.length > 5 && (
-                  <div className="my-8">
-                    <AdSenseSquare />
-                  </div>
-                )}
               </div>
             )}
           </div>
@@ -170,9 +162,6 @@ export default function Home() {
               onResetSettings={() => {}}
               hasFiles={pendingFiles.length > 0}
             />
-            
-            {/* Sidebar Ad */}
-            <AdSenseSidebar />
           </div>
         </div>
       </main>
@@ -192,12 +181,21 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-slate-500 mb-4 md:mb-0">
-              <p>© 2024 JPEG Compressor. All images are processed locally in your browser.</p>
+              <p>
+                © 2025 JPEG Compressor. All images are processed locally in
+                your browser.
+              </p>
             </div>
             <div className="flex items-center space-x-6 text-sm text-slate-500">
-              <a href="#" className="hover:text-slate-900 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-slate-900 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-slate-900 transition-colors">Help</a>
+              <a href="/privacy" className="hover:text-slate-900 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="/terms" className="hover:text-slate-900 transition-colors">
+                Terms of Service
+              </a>
+              <a href="/help" className="hover:text-slate-900 transition-colors">
+                Help
+              </a>
             </div>
           </div>
         </div>

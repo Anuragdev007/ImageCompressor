@@ -1,7 +1,7 @@
 import { ArrowRight, Zap, Shield, Download, FileImage } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
-import { AdSenseHeader, AdSenseRectangle } from '@/components/adsense-banner';
+
 
 export default function Landing() {
   return (
@@ -29,8 +29,7 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="pt-20 pb-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Header Ad */}
-          <AdSenseHeader />
+        
           
           <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
             Compress JPEG Images
@@ -47,9 +46,7 @@ export default function Landing() {
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-slate-300 text-slate-700">
-              See How It Works
-            </Button>
+            
           </div>
         </div>
       </section>
@@ -136,12 +133,7 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Rectangle Ad */}
-      <section className="py-8 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <AdSenseRectangle />
-        </div>
-      </section>
+     
 
       {/* CTA Section */}
       <section className="py-16 px-4 bg-blue-600">
@@ -206,7 +198,7 @@ export default function Landing() {
             </div>
           </div>
           <div className="border-t border-slate-700 mt-8 pt-8 text-center text-sm">
-            <p>&copy; 2024 JPEG Compressor. All rights reserved.</p>
+            <p>&copy; 2025 JPEG Compressor. All rights reserved.</p>
           </div>
         </div>
       </footer>
