@@ -3,10 +3,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Link } from 'wouter';
+import Seo from "@/components/seo";
 
 export default function Terms() {
   return (
     <div className="min-h-screen bg-slate-50">
+       <Seo
+        title="Compress JPEG Images - Free Online Tool"
+        description="Start compressing your JPEG images now. Drag and drop files for instant compression with quality control and batch processing."
+        canonical="/compress"
+      />
       {/* Header */}
       <header className="bg-white border-b border-slate-200 px-4 py-6">
         <div className="max-w-6xl mx-auto">

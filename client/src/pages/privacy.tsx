@@ -2,10 +2,12 @@ import { ArrowLeft, Shield, Eye, Lock, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "wouter";
+import Seo from "@/components/seo";
 
 export default function Privacy() {
   return (
     <div className="min-h-screen bg-slate-50">
+      
       {/* Header */}
       <header className="bg-white border-b border-slate-200 px-4 py-6">
         <div className="max-w-6xl mx-auto">

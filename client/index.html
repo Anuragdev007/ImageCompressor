@@ -6,35 +6,64 @@
     <title>JPEG Compressor - Smart Image Compression Tool</title>
     <meta name="description" content="Compress JPEG images without losing quality. Free online tool with batch processing, quality control, and format conversion. Process multiple files securely in your browser." />
     
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1611896159614248"
        crossorigin="anonymous"></script>
     
-    <!-- Google Analytics (replace with actual tracking ID) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT7TD69110"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LT7TD69110');
-</script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LT7TD69110"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LT7TD69110');
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "JPEG Compressor",
+      "description": "Free online JPEG image compression tool with batch processing and quality control",
+      "url": "https://jpegcompressor.com",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Modern web browser with JavaScript support",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Batch image compression",
+        "Quality control",
+        "Format conversion",
+        "Privacy-first processing",
+        "No file uploads required"
+      ]
+    }
+    </script>
     
     <!-- Open Graph tags -->
     <meta property="og:title" content="JPEG Compressor - Smart Image Compression Tool" />
     <meta property="og:description" content="Compress JPEG images without losing quality. Free online tool with batch processing and quality control." />
     <meta property="og:type" content="website" />
- 
+    <meta property="og:url" content="https://jpegcompressor.com/" />
+    <meta property="og:image" content="https://jpegcompressor.com/og-image.jpg" />
     
     <!-- Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="JPEG Compressor - Smart Image Compression Tool" />
     <meta name="twitter:description" content="Compress JPEG images without losing quality. Free online tool with batch processing and quality control." />
+    <meta name="twitter:image" content="https://jpegcompressor.com/og-image.jpg" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
   </body>
 </html>

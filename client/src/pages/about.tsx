@@ -2,10 +2,16 @@ import { ArrowLeft, Target, Users, Zap, Shield, Award, Globe } from 'lucide-reac
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'wouter';
+import Seo from "@/components/seo";
 
 export default function About() {
   return (
     <div className="min-h-screen bg-slate-50">
+        <Seo
+        title="About JPEG Compressor - Privacy-First Image Optimization"
+        description="Learn about our mission to provide secure, browser-based image compression. No uploads, complete privacy, and professional-grade results."
+        canonical="/about"
+      />
       {/* Header */}
       <header className="bg-white border-b border-slate-200 px-4 py-6">
         <div className="max-w-6xl mx-auto">

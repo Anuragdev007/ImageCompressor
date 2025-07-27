@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Link } from 'wouter';
+import Seo from "@/components/seo";
 
 import { useState } from 'react';
 
@@ -93,6 +94,11 @@ export default function Help() {
 
   return (
     <div className="min-h-screen bg-slate-50">
+       <Seo
+        title="Help & FAQ - JPEG Compressor Guide"
+        description="Get help with JPEG compression. Learn about quality settings, batch processing, file formats, and troubleshooting tips."
+        canonical="/help"
+      />
       {/* Header */}
       <header className="bg-white border-b border-slate-200 px-4 py-6">
         <div className="max-w-6xl mx-auto">
